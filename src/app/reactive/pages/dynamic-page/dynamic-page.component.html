@@ -5,7 +5,7 @@
 
     <!-- Nombre -->
     <div class="mb-3 row">
-        <label class="col-sm-3 col-form-label">Nombre</label>
+        <label class="col-sm-3 col-form-label">User Name</label>
         <div class="col-sm-9">
             <input class="form-control"
                    placeholder="Name"
@@ -32,8 +32,8 @@
                 <button class="btn btn-outline-primary"
                         type="button"
                         (click)="onAddToFavorites()">
-                    Add
-                </button>                
+                    Add favorite
+                </button>
             </div>
             @if (formUtil.isValidControl(newFavorite)) {
                     <span class="form-text text-danger">
@@ -69,8 +69,15 @@
                     
                 </div>
             }
+            @if (formUtil.isValidField(myForm, "favoriteGames")) {
+            <span class="form-text text-danger">
+               Missing favorites, {{ formUtil.getFieldError(myForm, "favoriteGames") }}
+            </span>
+        }
 
         </div>
+
+
     </div>
 
 
@@ -79,8 +86,7 @@
         <div class="col-sm-12">
             <button type="submit"
                     class="btn btn-primary float-end"
-                    >
-                    <!-- [disabled]="myForm.invalid" -->
+                    [disabled]="myForm.invalid">
                 Save
             </button>
         </div>
@@ -98,7 +104,3 @@
 <span>Value</span>
 <pre>{{ myForm.value| json }}</pre>
 <br>
-
-<span>Add game</span>
-<!-- <pre>{{ 'object' | json }}</pre>
-<pre>{{ 'object' | json }}</pre> -->

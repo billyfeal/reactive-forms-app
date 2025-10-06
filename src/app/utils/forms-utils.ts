@@ -11,18 +11,7 @@ export class FormsUtils {
     if (!form.controls[fieldName]) return null;
 
     const errors = form.controls[fieldName].errors ?? {};
-    for (const key of Object.keys(errors)) {
-      switch (key) {
-        case 'required':
-          return 'This field is required';
-        case 'minlength':
-          return `Min ${errors['minlength'].requiredLength} characters`;
-        case 'min':
-          return `Min value is ${errors['min'].min}`;
-      }
-    }
-
-    return null;
+    return this.getErrorMessages(errors);
   }
 
   static isValidFlieldInArray(formArray: FormArray, index: number): boolean | null {
@@ -46,7 +35,7 @@ export class FormsUtils {
         case 'required':
           return 'This field is required';
         case 'minlength':
-          return `Min ${errors['minlength'].requiredLength} characters`;
+          return `minlength is ${errors['minlength'].requiredLength}`;
         case 'min':
           return `Min value is ${errors['min'].min}`;
       }
