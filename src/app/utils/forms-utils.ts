@@ -1,6 +1,11 @@
 import { FormArray, FormControl, FormGroup, FormRecord, ValidationErrors } from "@angular/forms";
 
 export class FormsUtils {
+  //Regular expresions 
+  static namePattern = '([a-zA-Z]+) ([a-zA-Z]+)';
+  static emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
+  static notOnlySpacesPattern = '^[a-zA-Z0-9]+$';
+
   static isValidField(form: FormGroup, fieldName: string): boolean | null {
     return (
       form.controls[fieldName].errors &&
@@ -38,6 +43,10 @@ export class FormsUtils {
           return `minlength is ${errors['minlength'].requiredLength}`;
         case 'min':
           return `Min value is ${errors['min'].min}`;
+        case 'email':
+          return 'The value is not an email'
+        case 'pattern':
+          return 'Invalid pattern'
       }
     }
 
