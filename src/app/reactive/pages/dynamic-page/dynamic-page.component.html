@@ -28,7 +28,8 @@
                 <input class="form-control"
                        placeholder="Add favorite"
                        [formControl]="newFavorite"
-                       (keydown.enter)="onAddToFavorites()">
+                       (keydown.enter)="onAddToFavorites()"
+                       (keydown.enter)="$event.preventDefault()">
                 <button class="btn btn-outline-primary"
                         type="button"
                         (click)="onAddToFavorites()">
