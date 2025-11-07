@@ -19,10 +19,6 @@ export class SwitchesPageComponent {
   });
 
   onSubmit(){
-    console.log(this.myForm.value)
-  }
-
-  onSave(): void {
     if (this.myForm.invalid) {
       this.myForm.markAllAsTouched();
       return;

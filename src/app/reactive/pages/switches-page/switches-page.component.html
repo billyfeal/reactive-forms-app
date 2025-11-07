@@ -27,7 +27,7 @@
                        id="radioFemale"
                        formControlName="gender">
                 <label class="form-check-label" for="radioFemenino">
-                  Femenino
+                  Female
                 </label>
             </div>
 
@@ -44,7 +44,7 @@
                        type="checkbox"
                        id="flexSwitchCheckChecked"
                        formControlName="notifications">
-                <label class="form-check-label" for="flexSwitchCheckChecked">Quiero recibir notificaciones</label>
+                <label class="form-check-label" for="flexSwitchCheckChecked">Allow notifications</label>
             </div>
 
         </div>
@@ -65,7 +65,7 @@
               </div>
               @if (formsUtils.isValidField(myForm, "termsAndConditions")){
                   <span class="form-text text-danger">
-                     Debe de aceptar las condiciones de uso
+                     You must accept terms and conditions
                   </span>
               }
 
@@ -78,8 +78,8 @@
         <div class="col">
             <button class="btn btn-primary float-end"
                     type="submit"
-                    (click)="onSave()">
-                Guardar
+                    (click)="onSubmit()">
+                Save
             </button>
         </div>
     </div>
