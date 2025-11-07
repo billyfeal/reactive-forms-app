@@ -1,4 +1,4 @@
-import { FormArray, FormControl, FormGroup, FormRecord, ValidationErrors } from "@angular/forms";
+import { AbstractControl, FormArray, FormControl, FormGroup, FormRecord, ValidationErrors } from "@angular/forms";
 
 export class FormsUtils {
   //Regular expresions 
@@ -64,6 +64,16 @@ export class FormsUtils {
 
     const errors = control.errors ?? {};
     return this.getErrorMessages(errors);
+  }
+
+  static isFieldOneEqualsFieldTwo(field1: string, field2: string){
+    return (formGroup: AbstractControl) => {
+      const fieldOne = formGroup.get(field1)?.value;
+      const fieldTwo = formGroup.get(field2)?.value;
+
+      return fieldOne === fieldTwo ? null : { notEqualFileds: true}
+    };
+
   }
   
 }

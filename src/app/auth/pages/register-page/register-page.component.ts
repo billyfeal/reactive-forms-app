@@ -29,7 +29,14 @@ export class RegisterPageComponent {
       Validators.minLength(6),
       Validators.pattern(this.formsUtils.notOnlySpacesPattern)
     ]]
-  });
+  },
+  {
+    validators: [
+      this.formsUtils.isFieldOneEqualsFieldTwo('psw', 'psw2')]
+  }
+);
+
+  
 
   onSubmit(){
    if (this.myForm.invalid) {

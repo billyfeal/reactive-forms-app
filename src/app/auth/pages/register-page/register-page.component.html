@@ -77,7 +77,7 @@
 
             <!-- Password2 -->
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Confirmar</label>
+                <label class="col-sm-3 col-form-label">Confir password</label>
                 <div class="col-sm-9">
                     <input type="password"
                            class="form-control"
@@ -96,9 +96,15 @@
 
             <div class="row">
                 <div class="col">
+                    @if (myForm.touched && myForm.errors){
+                        <span class="form-text text-danger">
+                                Password must match
+                        </span>
+                    }
+
                     <button class="btn btn-primary float-end"
                             type="submit"
-                            (click)="onSubmit()">
+                            (click)="onSubmit()">                        
                         Create
                     </button>
                 </div>
